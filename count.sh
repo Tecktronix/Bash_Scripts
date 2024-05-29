@@ -2,35 +2,29 @@
 
 #########################
 # Name: Oluwatosin Ogunfile
-# Date: 28/05/2024
+# Date: 29/05/2024
 #
-# This script counts the number of "s" in Mississippi
+# This script counts the number of character in a string
 #########################
 
 # Enable debug mode
 #set -x
 
-# Execute helper function
-helper ()
+counter(){
+    local character_length=$(echo -n "$1" | wc -c)
 
-# Set Mississippi as variable x
-character=$1
-word=$2
+    if [[ $character_length -ne 1 ]] ; then
+  
+	echo "Enter a single character as the first argument"
 
-function counter {
-# Count s using echo to deliver strings to the stdin of grep
-echo $word | grep -o $character | wc -l
+    else
+  
+	# Count s using echo to deliver strings to the stdin of grep
+  	echo "$2" | grep -o "$1" | wc -l
 
-# Alternate method
-grep -o $character <<<$word | wc -l
+  	# Alternate method
+  	#grep -o "$1" <<<"$2" | wc -l
+    fi
 }
 
-function helper {
-character_length=$((echo $word | wc))
-if [[$character_length -ne 1]];
-then 
-  echo "Enter a single character as the first argument"
-else
-  counter ()
-fi
-}
+counter "$1" "$2"
