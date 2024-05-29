@@ -1,15 +1,20 @@
 #!/bin/bash
 
-x="mississipi"
+#########################
+# Name: Oluwatosin Ogunfile
+# Date: 28/05/2024
+#
+# This script counts the number of "s" in Mississippi
+#########################
 
-set -x
+# Enable debug mode
+#set -x
 
-echo $x | grep "s"
+# Set Mississippi as variable x
+x="Mississippi"
 
-echo $x | grep -o "s"
-
+# Count s using echo to deliver strings to the stdin of grep
 echo $x | grep -o "s" | wc -l
 
+# Alternate method
 grep -o "s" <<<$x | wc -l
-
-#grep -o "s" <<<$x | wc -l
