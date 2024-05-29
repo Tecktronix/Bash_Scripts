@@ -10,11 +10,27 @@
 # Enable debug mode
 #set -x
 
-# Set Mississippi as variable x
-x="Mississippi"
+# Execute helper function
+helper ()
 
+# Set Mississippi as variable x
+character=$1
+word=$2
+
+function counter {
 # Count s using echo to deliver strings to the stdin of grep
-echo $x | grep -o "s" | wc -l
+echo $word | grep -o $character | wc -l
 
 # Alternate method
-grep -o "s" <<<$x | wc -l
+grep -o $character <<<$word | wc -l
+}
+
+function helper {
+character_length=$((echo $word | wc))
+if [[$character_length -ne 1]];
+then 
+  echo "Enter a single character as the first argument"
+else
+  counter ()
+fi
+}
