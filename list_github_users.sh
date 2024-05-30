@@ -4,15 +4,24 @@
 # Name: Oluwatosin Ogunfile
 # Date: 30/05/2024
 #
-# This script lists the users of a github repo
+# This script lists the users of a GitHub repo
 #
-# Argument: First argument is the repo owner,
-# 	    Sencond argument is the repo name.
+# Argument: The first argument is the repo owner,
+# 	    The second argument is the repo name.
 #
 # Enviromental Variables: 1. "username" is the repo username
-#			  2. "token" is the github token
+#			  2. "token" is the GitHub token
 #
 #####################
+
+# Enable debug mode
+# set -x
+
+# Enable an exit if an error is encountered
+# set -e
+
+# Enable an exit if an error is encountered before a pipe
+# set -o pipefail
 
 # GitHub API URL
 API_URL="https://api.github.com"
@@ -57,7 +66,7 @@ echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 function main {
 if [[ $# -ne 2 ]] ; then
 	echo -e "You have $# arguments. You must enter the required arguments\n
-Argument: First argument is the repo owner, Second argument is the repo name."
+Argument: The first argument is the repo owner, and the second is the repo name."
 else
 	list_users_with_read_access
 fi
