@@ -6,7 +6,7 @@
 #
 # This script lists the users of a github repo
 #
-# Argument: Frist argument is the repo owner,
+# Argument: First argument is the repo owner,
 # 	    Sencond argument is the repo name.
 #
 # Enviromental Variables: 1. "username" is the repo username
@@ -57,10 +57,10 @@ echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 function main {
 if [[ $# -ne 2 ]] ; then
 	echo -e "You have $# arguments. You must enter the required arguments\n
-Argument: Frist argument is the repo owner, Second argument is the repo name."
+Argument: First argument is the repo owner, Second argument is the repo name."
 else
 	list_users_with_read_access
 fi
 }
 
-main "$1" "$2"
+main "$@"

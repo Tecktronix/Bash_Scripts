@@ -26,4 +26,4 @@ counter(){
 }
 
 # Calls the counter function
-counter "$1" "$2"
+counter "$@"
