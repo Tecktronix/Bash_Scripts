@@ -16,6 +16,7 @@
 # Enable an exit if an error is encountered before a pipe
 #set -o pipefail
 
+# Create a wrapper function to present results with new line characters
 wrapper () {
     echo -e "$1\n"
     eval "$2"
