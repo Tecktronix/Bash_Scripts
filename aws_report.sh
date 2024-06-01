@@ -16,30 +16,20 @@
 # Enable an exit if an error is encountered before a pipe
 #set -o pipefail
 
+wrapper () {
+    echo -e "$1\n"
+    eval "$2"
+    echo -e "\n"
+}
+
 # List of S3 buckets
-echo -e "List of S3 buckets\n"
-
-sudo aws s3 ls
-
-echo -e "\n"
+wrapper "List of S3 buckets" "sudo aws s3 ls"
 
 # List of EC2 instance IDs
-echo -e "List of EC2 Instances\n"
-
-sudo aws ec2 describe-instances | jq ".Reservations.Instances[].InstanceId"
-
-echo -e "\n"
+wrapper "List of EC2 Instances" "sudo aws ec2 describe-instances | jq .Reservations[].Instances[].InstanceId"
 
 # List of Lambda Functions
-echo -e "List of Lambda Functions\n"
-
-sudo aws lambda list-functions | jq ".Functions[].FunctionName"
-
-echo -e "\n"
+wrapper "List of Lambda Functions" "sudo aws lambda list-functions | jq .Functions[].FunctionName"
 
 # List of IAM Users
-echo -e "List of IAM Users\n"
-
-sudo aws iam list-users | jq ".Users[].UserName"
-
-echo -e "\n"
+wrapper "List of IAM Users" "sudo aws iam list-users | jq .Users[].UserName"
