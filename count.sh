@@ -10,6 +10,12 @@
 # Enable debug mode
 #set -x
 
+echo "Enter the character to search: "
+read character
+echo "Enter the word: "
+read word
+
+
 counter(){
     # Check the length of characters of the first command argument
     local character_length=$(echo -n "$1" | wc -c)
@@ -26,4 +32,4 @@ counter(){
 }
 
 # Calls the counter function
-counter "$@"
+counter "$character" "$word"
