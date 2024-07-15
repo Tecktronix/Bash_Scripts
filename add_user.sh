@@ -11,8 +11,8 @@
 #            -d - Deletes a user
 #            -h - Prints the script usage
 #
-# Usage: myuseradd.sh -a <login> <passwd> <shell> - add a user account\n
-#        myuseradd.sh -d <login>  - remove a user account\n
+# Usage: myuseradd.sh -a <login> <passwd> <shell> - add a user account
+#        myuseradd.sh -d <login>  - remove a user account
 #        myuseradd.sh -h          - display this usage message
 #################################################
 
